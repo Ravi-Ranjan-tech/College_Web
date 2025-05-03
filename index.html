@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radharaman Engineering College - Excellence in Truth and Service</title>
+    <meta name="description" content="Radharaman Engineering College is a comprehensive, research-oriented, private university providing an educational experience of exceptional quality to students of high academic potential." />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      :root {
+        --RADHARAMAN-blue: #003262;
+        --RADHARAMAN-red: #A6192E;
+        --RADHARAMAN-gold: #C4962C;
+      }
+      
+      body {
+        font-family: 'Open Sans', sans-serif;
+        color: #333;
+        line-height: 1.5;
+      }
+      
+      h1, h2, h3, h4, h5 {
+        font-family: 'Source Serif Pro', serif;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header styles */
+      header {
+        background-color: var(--RADHARAMAN-blue);
+        padding: 1rem 0;
+        color: white;
+      }
+      
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      
+      .nav-menu {
+        display: flex;
+        list-style: none;
+      }
+      
+      .nav-menu li {
+        margin-left: 1.5rem;
+      }
+      
+      .nav-menu a {
+        color: white;
+        text-decoration: none;
+      }
+      
+      /* Hero Banner */
+      .hero-banner {
+        position: relative;
+        background-image: url('https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        background-size: cover;
+        background-position: center;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      
+      .hero-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.4);
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+      }
+      
+      .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+      
+      .btn {
+        display: inline-block;
+        background-color: var(--RADHARAMAN-red);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      .btn:hover {
+        background-color: rgba(166, 25, 46, 0.9);
+      }
+      
+      /* News Section */
+      .news-section {
+        padding: 4rem 0;
+        background-color: #f9f9f9;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .news-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      }
+      
+      .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .news-content {
+        padding: 1.5rem;
+      }
+      
+      .news-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .news-category {
+        color: var(--RADHARAMAN-red);
+        font-weight: 600;
+      }
+      
+      .news-date {
+        color: #666;
+      }
+      
+      .news-title {
+        margin-bottom: 0.75rem;
+        font-size: 1.25rem;
+      }
+      
+      .news-excerpt {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      
+      /* Academic Section */
+      .academic-section {
+        padding: 4rem 0;
+      }
+      
+      .academic-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .academic-card {
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid #eaeaea;
+        transition: all 0.3s ease;
+      }
+      
+      .academic-card:hover {
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        transform: translateY(-5px);
+      }
+      
+      /* Events Section */
+      .events-section {
+        padding: 4rem 0;
+        background-color: var(--RADHARAMAN-blue);
+        color: white;
+      }
+      
+      .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .event-card {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 8px;
+        padding: 1.5rem;
+      }
+      
+      .event-date {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      
+      .event-calendar {
+        border: 1px solid rgba(255,255,255,0.3);
+        padding: 0.5rem;
+        border-radius: 4px;
+        text-align: center;
+        margin-right: 1rem;
+      }
+      
+      /* Facts Section */
+      .facts-section {
+        padding: 4rem 0;
+        background-color: var(--RADHARAMAN-red);
+        color: white;
+      }
+      
+      .facts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+      
+      .fact-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--RADHARAMAN-gold);
+        margin-bottom: 0.5rem;
+      }
+      
+      .fact-label {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      /* CTA Section */
+      .cta-section {
+        padding: 6rem 0;
+        background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+      
+      .cta-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 50, 98, 0.8); /* RADHARAMAN blue with opacity */
+      }
+      
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .cta-content p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+      
+      /* Footer */
+      footer {
+        background-color: var(--RADHARAMAN-blue);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      
+      .footer-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+      
+      .footer-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+      }
+      
+      .footer-links a:hover {
+        color: white;
+      }
+      
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.2);
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      
+      .footer-bottom-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
+        }
+        
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .footer-bottom {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div class="logo">RADHARAMAN<span style="color: var(--RADHARAMAN-red);">UNIVERSITY</span></div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Academics</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Student Life</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <section class="hero-banner">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Excellence in Truth and Service</h1>
+            <p>For more than 150 years, Radharaman Engineering College has been at the forefront of preparing students to become leaders and influential figures across the globe.</p>
+            <a href="#" class="btn">Apply Today</a>
+          </div>
+        </div>
+      </section>
+      
+      <section class="news-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Radharaman Engineering College News</h2>
+            <p>Stay informed about the latest updates, achievements, and events at Radharaman Engineering College.</p>
+          </div>
+          
+          <div class="news-grid">
+            <div class="news-card">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="News Image" class="news-image">
+              <div class="news-content">
+                <div class="news-meta">
+                  <span class="news-category">University News</span>
+                  <span class="news-date">May 2, 2025</span>
+                </div>
+                <h3 class="news-title">Radharaman Engineering College Receives $10 Million Gift for STEM Education</h3>
+                <p class="news-excerpt">Radharaman Engineering College announced a transformational $10 million gift to enhance STEM education and research initiatives across campus.</p>
+                <a href="#" class="read-more" style="color: var(--RADHARAMAN-blue); font-weight: 600;">Read More</a>
+              </div>
+            </div>
+            
+            <div class="news-card">
+              <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="News Image" class="news-image">
+              <div class="news-content">
+                <div class="news-meta">
+                  <span class="news-category">Academics</span>
+                  <span class="news-date">April 28, 2025</span>
+                </div>
+                <h3 class="news-title">RADHARAMAN School of Business Launches New Center for Entrepreneurship</h3>
+                <p class="news-excerpt">The Radharaman Engineering College School of Business has established a new center focused on supporting Black entrepreneurship and innovation.</p>
+                <a href="#" class="read-more" style="color: var(--RADHARAMAN-blue); font-weight: 600;">Read More</a>
+              </div>
+            </div>
+            
+            <div class="news-card">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="News Image" class="news-image">
+              <div class="news-content">
+                <div class="news-meta">
+                  <span class="news-category">Faculty & Staff</span>
+                  <span class="news-date">April 25, 2025</span>
+                </div>
+                <h3 class="news-title">Radharaman Engineering College Names New Dean of College of Arts and Sciences</h3>
+                <p class="news-excerpt">Dr. Jane Smith has been appointed as the new Dean of the College of Arts and Sciences, bringing decades of academic leadership experience.</p>
+                <a href="#" class="read-more" style="color: var(--RADHARAMAN-blue); font-weight: 600;">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="btn" style="background-color: transparent; border: 1px solid var(--RADHARAMAN-blue); color: var(--RADHARAMAN-blue);">View All News</a>
+          </div>
+        </div>
+      </section>
+      
+      <section class="academic-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Academic Excellence</h2>
+            <p>RADHARAMAN offers more than 120 areas of study leading to undergraduate, graduate, and professional degrees.</p>
+          </div>
+          
+          <div class="academic-grid">
+            <div class="academic-card">
+              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <img src="https://via.placeholder.com/48" alt="Icon" style="margin-right: 1rem;">
+                <h3>Undergraduate Programs</h3>
+              </div>
+              <p>Choose from more than 80 majors across multiple disciplines to prepare for a successful career.</p>
+              <div style="margin-top: 1rem; color: var(--RADHARAMAN-red); font-weight: 600;">Learn More →</div>
+            </div>
+            
+            <div class="academic-card">
+              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <img src="https://via.placeholder.com/48" alt="Icon" style="margin-right: 1rem;">
+                <h3>Graduate Programs</h3>
+              </div>
+              <p>Advance your education with our comprehensive graduate and professional degree programs.</p>
+              <div style="margin-top: 1rem; color: var(--RADHARAMAN-red); font-weight: 600;">Learn More →</div>
+            </div>
+            
+            <div class="academic-card">
+              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <img src="https://via.placeholder.com/48" alt="Icon" style="margin-right: 1rem;">
+                <h3>Online Learning</h3>
+              </div>
+              <p>Access quality RADHARAMAN education through our flexible online and hybrid learning options.</p>
+              <div style="margin-top: 1rem; color: var(--RADHARAMAN-red); font-weight: 600;">Learn More →</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="events-section">
+        <div class="container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap;">
+            <div>
+              <h2 class="text-3xl font-bold mb-2">Upcoming Events</h2>
+              <p class="text-gray-300">Join us at our upcoming events and activities</p>
+            </div>
+            <a href="#" style="color: var(--RADHARAMAN-red); display: flex; align-items: center; font-weight: 600;">View All Events →</a>
+          </div>
+          
+          <div class="events-grid">
+            <div class="event-card">
+              <div class="event-date">
+                <div class="event-calendar">
+                  <div style="font-size: 0.75rem; text-transform: uppercase;">May</div>
+                  <div style="font-size: 1.5rem; font-weight: bold;">10</div>
+                </div>
+                <span style="background: rgba(196, 150, 44, 0.2); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Ceremony</span>
+              </div>
+              
+              <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Spring 2025 Commencement Ceremony</h3>
+              
+              <div style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+                <p>9:00 AM - 12:00 PM</p>
+                <p>Main Yard, Radharaman Engineering College</p>
+              </div>
+              
+              <a href="#" style="color: var(--RADHARAMAN-red); font-weight: 600;">Event Details</a>
+            </div>
+            
+            <div class="event-card">
+              <div class="event-date">
+                <div class="event-calendar">
+                  <div style="font-size: 0.75rem; text-transform: uppercase;">May</div>
+                  <div style="font-size: 1.5rem; font-weight: bold;">15</div>
+                </div>
+                <span style="background: rgba(196, 150, 44, 0.2); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Academic</span>
+              </div>
+              
+              <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Annual Research Symposium</h3>
+              
+              <div style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+                <p>10:00 AM - 4:00 PM</p>
+                <p>Blackburn Center</p>
+              </div>
+              
+              <a href="#" style="color: var(--RADHARAMAN-red); font-weight: 600;">Event Details</a>
+            </div>
+            
+            <div class="event-card">
+              <div class="event-date">
+                <div class="event-calendar">
+                  <div style="font-size: 0.75rem; text-transform: uppercase;">May</div>
+                  <div style="font-size: 1.5rem; font-weight: bold;">18</div>
+                </div>
+                <span style="background: rgba(196, 150, 44, 0.2); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.875rem;">Arts</span>
+              </div>
+              
+              <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Radharaman Engineering College Jazz Ensemble Concert</h3>
+              
+              <div style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+                <p>7:00 PM - 9:00 PM</p>
+                <p>Cramton Auditorium</p>
+              </div>
+              
+              <a href="#" style="color: var(--RADHARAMAN-red); font-weight: 600;">Event Details</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="facts-section">
+        <div class="container">
+          <div class="section-title">
+            <h2>Radharaman Engineering College Facts</h2>
+            <p style="color: rgba(255,255,255,0.8);">Founded in 1867, Radharaman Engineering College is a private research university comprised of 14 schools and colleges.</p>
+          </div>
+          
+          <div class="facts-grid">
+            <div>
+              <div class="fact-number">10,000+</div>
+              <div class="fact-label">Students</div>
+            </div>
+            <div>
+              <div class="fact-number">1867</div>
+              <div class="fact-label">Year Founded</div>
+            </div>
+            <div>
+              <div class="fact-number">14</div>
+              <div class="fact-label">Schools & Colleges</div>
+            </div>
+            <div>
+              <div class="fact-number">100+</div>
+              <div class="fact-label">Areas of Study</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Join the RADHARAMAN Family</h2>
+            <p>Take the first step toward becoming part of our legacy of excellence. Apply today to Radharaman Engineering College and experience the difference.</p>
+            <a href="#" class="btn">Request Information</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h2 class="footer-title">RADHARAMAN<span style="color: var(--RADHARAMAN-red);">UNIVERSITY</span></h2>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Excellence in Truth and Service</p>
+            <address style="color: rgba(255,255,255,0.7); font-style: normal;">
+              2400 Sixth Street NW<br>
+              Washington, DC 20059<br>
+              202-806-6100
+            </address>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: white;">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Academics</a></li>
+              <li><a href="#">Admission</a></li>
+              <li><a href="#">Research</a></li>
+              <li><a href="#">Student Life</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: white;">Resources</h3>
+            <ul class="footer-links">
+              <li><a href="#">Library</a></li>
+              <li><a href="#">Calendar</a></li>
+              <li><a href="#">Directory</a></li>
+              <li><a href="#">Maps & Directions</a></li>
+              <li><a href="#">Jobs</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1.125rem; margin-bottom: 1rem; color: white;">Connect</h3>
+            <ul class="footer-links">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Give</a></li>
+              <li><a href="#">Alumni</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">© 2025 Radharaman Engineering College. All rights reserved.</p>
+          </div>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      // JavaScript functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile navigation toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // This would be implemented if we had a mobile menu button in the HTML
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+          });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+        
+        // Animation for facts section
+        const factNumbers = document.querySelectorAll('.fact-number');
+        
+        // Simple animation to count up the numbers when they come into view
+        const animateFactNumbers = () => {
+          factNumbers.forEach(number => {
+            const finalNumber = number.textContent;
+            if (!finalNumber.includes('+')) {
+              const numericValue = parseInt(finalNumber);
+              let currentNumber = 0;
+              const increment = Math.ceil(numericValue / 50);
+              
+              const timer = setInterval(() => {
+                currentNumber += increment;
+                if (currentNumber >= numericValue) {
+                  clearInterval(timer);
+                  number.textContent = finalNumber;
+                } else {
+                  number.textContent = currentNumber;
+                }
+              }, 30);
+            }
+          });
+        };
+        
+        // Check if element is in viewport
+        const isInViewport = (element) => {
+          const rect = element.getBoundingClientRect();
+          return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+        };
+        
+        // Animate facts when scrolled into view
+        const handleScroll = () => {
+          const factsSection = document.querySelector('.facts-section');
+          if (factsSection && isInViewport(factsSection)) {
+            animateFactNumbers();
+            window.removeEventListener('scroll', handleScroll);
+          }
+        };
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        // Check if facts section is already in viewport on page load
+        handleScroll();
+      });
+    </script>
+  </body>
+</html>
